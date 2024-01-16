@@ -12,6 +12,16 @@ class LinkedList {
     size_t _size {0};
 
 public:
+    virtual ~LinkedList() {
+        auto node = _start;
+
+        while (node != nullptr) {
+            auto temp = node;
+            node = node->_next;
+            delete temp;
+        }
+    }
+
     [[nodiscard]] size_t size() const { return _size; }
 
     void add(int data) {
@@ -91,7 +101,6 @@ public:
 
         // Did I find the node to delete?
         if (node != nullptr) {
-            // Found it
 
             // Is it the first node?
             if (prev == nullptr) {
@@ -106,7 +115,7 @@ public:
     }
 
     friend std::ostream& operator<<(std::ostream& output, LinkedList& list);
-}; // End of LinkedList Class
+};
 
 std::ostream& operator<<(std::ostream& output, LinkedList& list) {
     auto node = list._start;
@@ -120,7 +129,6 @@ std::ostream& operator<<(std::ostream& output, LinkedList& list) {
 }
 
 int main() {
-
     auto list = LinkedList();
 
     // Test 1 - Add some numbers to the linked list.
