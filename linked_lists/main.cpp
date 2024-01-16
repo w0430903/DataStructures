@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 using std::cout, std::endl;
 
@@ -21,6 +22,24 @@ public:
             delete temp;
         }
     }
+    class iterator {
+        LinkedListNode* _node {nullptr};
+    public:
+        explicit iterator(LinkedListNode* node = nullptr) : _node(node){}
+        int operator*(int num) const {return _node->_data;}
+        bool operator !=(iterator it) const { return this->_node != it._node;}
+
+        iterator& operator++() {
+            _node = _node->_next;
+            return *this;
+        }
+
+    };
+
+    iterator begin() { return iterator(_start); }
+
+    iterator end() { return  iterator(nullptr); }
+
 
     [[nodiscard]] size_t size() const { return _size; }
 
@@ -183,6 +202,12 @@ int main() {
     cout << "\nTest 7 - Deleting node at the end." << endl;
     cout << "----------------------------------" << endl;
     cout << list << endl;
+
+    // Test 8 - Using an iterator
+    for (auto n:list) {
+        cout << n << ' ';
+    }
+    cout << endl;
 
     return 0;
 }
