@@ -204,9 +204,7 @@ int main() {
     cout << list << endl;
 
     // Test 8 - Using an iterator
-    for (auto n:list) {
-        cout << n << ' ';
-    }
+
     cout << endl;
 
     return 0;
