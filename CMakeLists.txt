@@ -14,3 +14,7 @@ add_executable(smart_pointer Exercises/smart_pointer/main.cpp)
 add_executable(iterator Exercises/iterator/main.cpp)
 add_executable(queues Exercises/queues/main.cpp)
 add_executable(stack Exercises/stack/main.cpp)
+
+add_executable(text_editor Completed_Assignments/Assignment_1-Text_Editor/main.cpp
+                Completed_Assignments/Assignment_1-Text_Editor/text_editor.cpp
+                Completed_Assignments/Assignment_1-Text_Editor/linked_list.cpp)
