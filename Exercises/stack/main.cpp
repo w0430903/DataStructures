@@ -7,8 +7,6 @@ using std::cout,std::endl;
 struct Data {
     int _id {0};
     float _val {0.0};
-
-    static Data invalid_data() {return {-1,-1.1};}
 };
 std::ostream& operator<<(std::ostream& output, const Data& data) {
     output << "ID: " << data._id << ", ";
